@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hritik Raj — B.Tech CSE (AI/ML) | Aspiring Developer</title>
+  <meta name="description" content="Personal portfolio of Hritik Raj, a B.Tech CSE (AI/ML) student passionate about technology, programming, web development, and building things with code.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Curved Lines & Ambient Glow -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <svg class="bg-arcs" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="1200" cy="300" r="320" stroke="currentColor" stroke-width="1.2" />
+      <circle cx="1200" cy="300" r="540" stroke="currentColor" stroke-width="1.2" />
+      <circle cx="1200" cy="300" r="760" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 6" />
+    </svg>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar-header" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand" aria-label="Hritik Raj Home">
+        <span class="brand-name-main">Hritik <span class="brand-gradient-text">Raj</span><span class="brand-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle dark mode">
+          <span class="theme-icon-wrapper" id="theme-icon">
+            <!-- Moon Icon -->
+            <svg class="theme-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <!-- Sun Icon (Hidden in Light Mode) -->
+            <svg class="theme-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-label" id="theme-text">Dark</span>
+        </button>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="mobile-actions">
+        <button id="mobile-theme-toggle" class="theme-toggle-btn mobile-theme-btn" type="button" aria-label="Toggle theme">
+          <span class="theme-icon-wrapper">
+            <svg class="theme-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+            </svg>
+          </span>
+        </button>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">About Me</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         HERO / FIRST PAGE (Visual Reference Match)
+         ========================================== -->
+    <section class="hero-section" id="home">
+      <div class="hero-container">
+        
+        <!-- Hero Left Column -->
+        <div class="hero-left">
+          <!-- Status Tag -->
+          <div class="status-tag">
+            <span class="status-dot"></span>
+            <span class="status-text">CSE (AI/ML) STUDENT</span>
+          </div>
+
+          <!-- Oversized Headline (Visual Arrangement from Screenshot) -->
+          <h1 class="hero-headline">
+            <span class="headline-line-1">Hi, I'm <span class="headline-name gradient-text">Hritik</span></span>
+            <span class="headline-line-2 gradient-text">Raj.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <div class="hero-subtitle">
+            <span class="subtitle-bold">B.Tech CSE (AI/ML) Student</span>
+            <span class="subtitle-divider" aria-hidden="true">|</span>
+            <span class="subtitle-role">Aspiring Developer</span>
+          </div>
+
+          <!-- Bio Description -->
+          <p class="hero-description">
+            Hi, I'm Hritik Raj, a B.Tech CSE (AI/ML) student passionate about technology, programming, web development, and continuously learning new skills.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary" id="btn-projects">
+              View My Projects
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary" id="btn-contact">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right Column (Floating Code Card) -->
+        <div class="hero-right">
+          <div class="code-card-scene">
+            
+            <!-- Top-Right Floating Label: 01 learn -->
+            <div class="floating-pill pill-top-right">
+              <span class="pill-number">01</span>
+              <span class="pill-text">learn</span>
+            </div>
+
+            <!-- Main Floating Code Window -->
+            <div class="code-window" id="code-window">
+              <!-- Window Bar with 3 Dots -->
+              <div class="window-header">
+                <div class="window-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <span class="window-title">developer.py</span>
+              </div>
+
+              <!-- Code Content -->
+              <div class="window-body">
+                <pre class="code-block"><code><span class="token-keyword">class</span> <span class="token-class">Hritik</span>:
+
+    <span class="token-property">role</span> = <span class="token-string">"Student Developer"</span>
+
+    <span class="token-property">focus</span> = [
+        <span class="token-string">"Python"</span>,
+        <span class="token-string">"Web Development"</span>,
+        <span class="token-string">"AI / ML"</span>
+    ]
+
+    <span class="token-property">learning</span> = <span class="token-boolean">True</span>
+
+
+<span class="token-keyword">def</span> <span class="token-function">keep_learning</span>(<span class="token-param">self</span>):
+    <span class="token-keyword">return</span> <span class="token-boolean">True</span></code></pre>
+              </div>
+            </div>
+
+            <!-- Bottom-Left Floating Label: 02 build -->
+            <div class="floating-pill pill-bottom-left">
+              <span class="pill-number">02</span>
+              <span class="pill-text">build</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Scroll Indicator -->
+      <div class="scroll-indicator">
+        <a href="#about" class="scroll-link" aria-label="Scroll to About Me section">
+          <span class="scroll-text">Scroll to explore</span>
+          <span class="scroll-arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ABOUT ME SECTION
+         ========================================== -->
+    <section class="content-section" id="about">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">01 // OVERVIEW</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="about-card concise">
+          <p class="about-paragraph lead">
+            I'm Hritik Raj, a Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning.
+          </p>
+          <p class="about-paragraph">
+            Passionate about technology, web development, and building hands-on projects to continuously improve my programming skills.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SKILLS SECTION
+         ========================================== -->
+    <section class="content-section section-alt" id="skills">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">02 // CAPABILITIES</span>
+          <h2 class="section-title">Skills</h2>
+          <p class="section-subtitle">Core technologies and tools I actively practice and learn.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Python (Primary Skill) -->
+          <div class="skill-card skill-primary skill-python">
+            <div class="skill-header">
+              <span class="skill-priority-badge">PRIMARY FOCUS</span>
+              <span class="skill-index">01</span>
+            </div>
+            <h3 class="skill-name">Python</h3>
+            <p class="skill-desc">Core programming language for problem-solving, algorithms, data structures, and foundational AI/ML exploration.</p>
+            <div class="skill-footer">
+              <span class="skill-level-tag">Core Language</span>
+            </div>
+          </div>
+
+          <!-- HTML -->
+          <div class="skill-card skill-html">
+            <div class="skill-header">
+              <span class="skill-index">02</span>
+            </div>
+            <h3 class="skill-name">HTML</h3>
+            <p class="skill-desc">Semantic document structuring, modern HTML5 elements, accessibility standards, and web fundamentals.</p>
+            <div class="skill-footer">
+              <span class="skill-level-tag">Markup & Structure</span>
+            </div>
+          </div>
+
+          <!-- CSS — Basic -->
+          <div class="skill-card skill-css">
+            <div class="skill-header">
+              <span class="skill-index">03</span>
+            </div>
+            <h3 class="skill-name">CSS <span class="skill-specifier">— Basic</span></h3>
+            <p class="skill-desc">Fundamental styling, layout techniques including Flexbox & Grid, responsive design principles, and typography.</p>
+            <div class="skill-footer">
+              <span class="skill-level-tag basic-tag">Basic Level</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PROJECTS SECTION
+         ========================================== -->
+    <section class="content-section" id="projects">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">03 // PORTFOLIO WORK</span>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">Featured interactive browser games and web applications.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: CodeFlux -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-badge">DIGITAL STUDIO</span>
+              <span class="project-number">01</span>
+            </div>
+            <h3 class="project-title">CodeFlux</h3>
+            <p class="project-description">
+              A modern digital studio platform crafting responsive web applications, modern UI/UX design systems, and AI-powered solutions designed to turn bold ideas into production-ready digital reality.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">AI Solutions</span>
+              <span class="tech-tag">UI/UX</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://hritikraj07.github.io/CodeFlux/" target="_blank" rel="noopener noreferrer" class="btn btn-project-live">
+                Live Demo <span class="arrow-icon">↗</span>
+              </a>
+              <a href="https://github.com/hritikraj07/CodeFlux" target="_blank" rel="noopener noreferrer" class="btn btn-project-github">
+                Source Code <span class="arrow-icon">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Galaxy Defender -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-badge">ARCADE SHOOTER</span>
+              <span class="project-number">02</span>
+            </div>
+            <h3 class="project-title">Galaxy Defender</h3>
+            <p class="project-description">
+              A fast-paced sci-fi arcade space shooter featuring wave-based combat, power-ups, particle explosion effects, and multi-phase boss battles built with HTML5 Canvas.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">HTML5 Canvas</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">CSS3</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://hritikraj07.github.io/Galaxy-Defender/" target="_blank" rel="noopener noreferrer" class="btn btn-project-live">
+                Live Demo <span class="arrow-icon">↗</span>
+              </a>
+              <a href="https://github.com/hritikraj07/Galaxy-Defender" target="_blank" rel="noopener noreferrer" class="btn btn-project-github">
+                Source Code <span class="arrow-icon">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACT SECTION
+         ========================================== -->
+    <section class="content-section section-alt" id="contact">
+      <div class="section-container">
+        <div class="contact-card">
+          <div class="section-header center">
+            <span class="section-badge">04 // GET IN TOUCH</span>
+            <h2 class="section-title contact-headline">Let's Connect</h2>
+            <p class="contact-subtext">
+              I'm always interested in learning, building, and connecting with people interested in technology.
+            </p>
+          </div>
+
+          <!-- Three Prominent Functional Buttons with Icons -->
+          <div class="contact-buttons-grid">
+            <a href="https://github.com/hritikraj07" target="_blank" rel="noopener noreferrer" class="contact-action-btn contact-github-btn" id="contact-github">
+              <div class="btn-left-group">
+                <div class="contact-icon-box github-icon-box" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </div>
+                <div class="btn-content">
+                  <span class="btn-label">GitHub</span>
+                  <span class="btn-handle">@hritikraj07</span>
+                </div>
+              </div>
+              <span class="btn-icon-corner" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/hritikraj07/" target="_blank" rel="noopener noreferrer" class="contact-action-btn contact-linkedin-btn" id="contact-linkedin">
+              <div class="btn-left-group">
+                <div class="contact-icon-box linkedin-icon-box" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                </div>
+                <div class="btn-content">
+                  <span class="btn-label">LinkedIn</span>
+                  <span class="btn-handle">in/hritikraj07</span>
+                </div>
+              </div>
+              <span class="btn-icon-corner" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="mailto:hritikraj626@gmail.com" class="contact-action-btn contact-email-btn" id="contact-email">
+              <div class="btn-left-group">
+                <div class="contact-icon-box email-icon-box" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                </div>
+                <div class="btn-content">
+                  <span class="btn-label">Email</span>
+                  <span class="btn-handle">hritikraj626@gmail.com</span>
+                </div>
+              </div>
+              <span class="btn-icon-corner" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <a href="#home" class="nav-brand footer-brand" aria-label="Hritik Raj Home">
+          <span class="brand-name-main">Hritik <span class="brand-gradient-text">Raj</span><span class="brand-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="#home" class="footer-nav-link">Home</a>
+        <a href="#about" class="footer-nav-link">About Me</a>
+        <a href="#skills" class="footer-nav-link">Skills</a>
+        <a href="#projects" class="footer-nav-link">Projects</a>
+        <a href="#contact" class="footer-nav-link">Contact</a>
+      </nav>
+
+      <div class="footer-right">
+        <span class="footer-copyright">&copy; 2026 Hritik Raj</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
