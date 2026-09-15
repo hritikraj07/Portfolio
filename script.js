@@ -1,208 +1,215 @@
 /**
- * HRITIK RAJ — PORTFOLIO SCRIPT
- * Functionality: Dark/Light Mode with localStorage, Mobile Drawer Navigation,
- * Active Section Tracking, Interactive 3D Card Tilt, and Smooth Scroll Handling.
+ * HRITIK RAJ — PORTFOLIO SCRIPTS
+ * Includes:
+ * - Dynamic Typewriter Backspace & Retype Text Effect
+ * - Direct Section Header Scroll Alignment (Zero top blank space)
+ * - Mobile Navigation Modal Drawer
+ * - Scrollspy Active Link Highlighting
+ * - Scroll-Triggered Animated Skill Progress Bars Fill
+ * - Back to Top Button
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------------------
-  // 1. Dark Mode / Light Mode Management with LocalStorage
+  // 1. Dynamic Typewriter / Backspacing Text Effect
   // -------------------------------------------------------------------------
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
-  const themeText = document.getElementById('theme-text');
-  const htmlElement = document.documentElement;
+  const typewriterElement = document.getElementById('typewriter-text');
 
-  // Retrieve saved theme or default to 'light'
-  const savedTheme = localStorage.getItem('hritik_portfolio_theme') || 'light';
-  applyTheme(savedTheme);
+  if (typewriterElement) {
+    const phrases = [
+      'B.Tech CSE (AI/ML) Student',
+      'Frontend Web Developer',
+      'Python Programmer',
+      'Creative Tech Builder'
+    ];
 
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      htmlElement.setAttribute('data-theme', 'dark');
-      if (themeText) themeText.textContent = 'Light';
-      localStorage.setItem('hritik_portfolio_theme', 'dark');
-    } else {
-      htmlElement.setAttribute('data-theme', 'light');
-      if (themeText) themeText.textContent = 'Dark';
-      localStorage.setItem('hritik_portfolio_theme', 'light');
-    }
-  }
+    let phraseIndex = 0;
+    let charIndex = phrases[0].length; // start with first phrase already shown or ready
+    let isDeleting = false;
+    const typeSpeed = 80;      // Typing speed in ms
+    const deleteSpeed = 38;    // Backspacing speed in ms
+    const pauseEnd = 2000;     // Pause when full phrase is typed
+    const pauseStart = 350;    // Pause before typing next phrase
 
-  function toggleTheme() {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
-  }
+    function typeLoop() {
+      const currentPhrase = phrases[phraseIndex];
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', toggleTheme);
-  }
+      if (isDeleting) {
+        // Backspace / cut letters
+        charIndex--;
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex);
 
-  if (mobileThemeToggleBtn) {
-    mobileThemeToggleBtn.addEventListener('click', toggleTheme);
-  }
-
-  // -------------------------------------------------------------------------
-  // 2. Mobile Menu / Drawer Management
-  // -------------------------------------------------------------------------
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('open');
-      if (isOpen) {
-        closeMobileMenu();
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typeLoop, pauseStart);
+          return;
+        }
+        setTimeout(typeLoop, deleteSpeed);
       } else {
-        openMobileMenu();
-      }
-    });
+        // Type letters
+        charIndex++;
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex);
 
-    function openMobileMenu() {
-      mobileMenu.classList.add('open');
-      menuToggle.classList.add('open');
-      menuToggle.setAttribute('aria-expanded', 'true');
-      mobileMenu.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeMobileMenu() {
-      mobileMenu.classList.remove('open');
-      menuToggle.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-    }
-
-    // Close menu when a link is clicked
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        closeMobileMenu();
-      });
-    });
-
-    // Close on click outside
-    document.addEventListener('click', (event) => {
-      if (
-        mobileMenu.classList.contains('open') &&
-        !mobileMenu.contains(event.target) &&
-        !menuToggle.contains(event.target)
-      ) {
-        closeMobileMenu();
-      }
-    });
-  }
-
-  // -------------------------------------------------------------------------
-  // 3. Active Navigation State Tracking (IntersectionObserver)
-  // -------------------------------------------------------------------------
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  if ('IntersectionObserver' in window && sections.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const currentId = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            const href = link.getAttribute('href').replace('#', '');
-            if (href === currentId) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
+        if (charIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(typeLoop, pauseEnd);
+          return;
         }
-      });
-    }, observerOptions);
+        setTimeout(typeLoop, typeSpeed);
+      }
+    }
 
-    sections.forEach(sec => sectionObserver.observe(sec));
+    // Initial pause before first backspacing cycle
+    setTimeout(() => {
+      isDeleting = true;
+      typeLoop();
+    }, 1800);
   }
 
   // -------------------------------------------------------------------------
-  // 4. Subtle Interactive 3D Perspective Tilt on Mousemove
+  // 2. Direct Smooth Scrolling to Section Header (Zero Top Empty Void)
   // -------------------------------------------------------------------------
-  const codeScene = document.querySelector('.code-card-scene');
-  const codeWindow = document.getElementById('code-window');
-
-  if (codeScene && codeWindow && window.matchMedia('(pointer: fine)').matches) {
-    codeScene.addEventListener('mousemove', (e) => {
-      const rect = codeScene.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-
-      // Max tilt angles: subtle and elegant
-      const rotY = (x / (rect.width / 2)) * 6;
-      const rotX = -(y / (rect.height / 2)) * 6;
-
-      codeWindow.style.transform = `perspective(1000px) rotateY(${rotY}deg) rotateX(${rotX}deg) translateY(-4px)`;
-    });
-
-    codeScene.addEventListener('mouseleave', () => {
-      // Revert back to original perspective with slight default tilt
-      codeWindow.style.transform = '';
-    });
-  }
-
-  // -------------------------------------------------------------------------
-  // 5. Smooth Scroll Fallback for Internal Links
-  // -------------------------------------------------------------------------
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  anchorLinks.forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      if (targetId && targetId !== '#') {
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          if (targetId === '#home') {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-            return;
-          }
-          const navHeight = document.getElementById('navbar')?.offsetHeight || 76;
-          // Align section flush under navbar bottom border (-1px) so previous section background is completely hidden
-          const targetPosition = Math.max(0, targetElement.getBoundingClientRect().top + window.pageYOffset - (navHeight - 1));
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
+      if (targetId === '#' || targetId === '') return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+
+        // Target the section header directly if it exists, or the section top
+        const headerElement = targetElement.querySelector('.section-header') || targetElement;
+        const navbarHeight = 82; // Height of floating navbar + safe clearance
+        const targetTop = headerElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: 'smooth'
+        });
       }
     });
   });
 
   // -------------------------------------------------------------------------
-  // 6. Smooth Scroll Reveal for Content Cards & Sections
+  // 3. Mobile Modal Sheet Drawer Navigation
   // -------------------------------------------------------------------------
-  const revealElements = document.querySelectorAll('.about-card, .skill-card, .project-card, .contact-card');
-  revealElements.forEach(el => el.classList.add('reveal-on-scroll'));
+  const mobileToggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileCloseBtn = document.getElementById('mobile-close-btn');
+  const modalBackdrop = document.getElementById('modal-backdrop');
+  const mobileModal = document.getElementById('mobile-modal');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+  function openMobileMenu() {
+    if (!mobileModal) return;
+    mobileModal.classList.add('open');
+    mobileModal.setAttribute('aria-hidden', 'false');
+    if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    if (!mobileModal) return;
+    mobileModal.classList.remove('open');
+    mobileModal.setAttribute('aria-hidden', 'true');
+    if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener('click', openMobileMenu);
+  }
+
+  if (mobileCloseBtn) {
+    mobileCloseBtn.addEventListener('click', closeMobileMenu);
+  }
+
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', closeMobileMenu);
+  }
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileModal && mobileModal.classList.contains('open')) {
+      closeMobileMenu();
+    }
+  });
+
+  // -------------------------------------------------------------------------
+  // 4. Active Nav Link Tracking (Scrollspy)
+  // -------------------------------------------------------------------------
+  const sections = document.querySelectorAll('section[id]');
+  const desktopNavLinks = document.querySelectorAll('.nav-pill .nav-link');
+
+  function updateActiveNav() {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 120;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        desktopNavLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+
+  // -------------------------------------------------------------------------
+  // 5. Scroll-Triggered Animated Skill Progress Bars
+  // -------------------------------------------------------------------------
+  const skillBars = document.querySelectorAll('.skill-bar-fill');
+  let skillsAnimated = false;
+
+  function fillSkillBars() {
+    skillBars.forEach(bar => {
+      const progress = bar.getAttribute('data-progress');
+      if (progress) {
+        bar.style.width = progress;
+      }
+    });
+  }
+
+  const aboutSection = document.querySelector('.about-section');
+  if (aboutSection && 'IntersectionObserver' in window) {
+    const skillsObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
+        if (entry.isIntersecting && !skillsAnimated) {
+          skillsAnimated = true;
+          fillSkillBars();
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      root: null,
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.2 });
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    skillsObserver.observe(aboutSection);
   } else {
-    revealElements.forEach(el => el.classList.add('is-revealed'));
+    fillSkillBars();
+  }
+
+  // -------------------------------------------------------------------------
+  // 6. Back to Top Button
+  // -------------------------------------------------------------------------
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
 });
-
