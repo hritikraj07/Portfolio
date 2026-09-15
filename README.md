@@ -1,19 +1,27 @@
-# Meeko — Creative Portfolio Website
+# Hritik Raj — Personal Portfolio
 
-> **Modeled after the "Meeko" Framer Template**
-> Soft-Pastel Neo-Brutalist & Modern Playful Editorial Design
+> **B.Tech Computer Science & Engineering (AI/ML) Student | Aspiring Developer**  
+> *Soft-Pastel Neo-Brutalist & Modern Playful Editorial Design*
 
-A complete, responsive, pixel-perfect creative portfolio website featuring clean high-contrast elements, rounded bento cards, pastel color blocks, smooth micro-interactions, geometric typography, and handwritten script accents.
+A complete, responsive, pixel-perfect personal portfolio website designed with a modern soft-pastel neo-brutalist aesthetic. Built with clean semantic HTML5, Vanilla CSS, and JavaScript, featuring dynamic micro-interactions, an expansive bento grid layout, a live typewriter headline, and direct smooth scrolling.
+
+---
+
+## 🚀 Live Links & Contact
+
+- **GitHub Profile**: [@hritikraj07](https://github.com/hritikraj07)
+- **LinkedIn**: [linkedin.com/in/hritikraj07](https://www.linkedin.com/in/hritikraj07/)
+- **Email**: [hritikraj626@gmail.com](mailto:hritikraj626@gmail.com)
 
 ---
 
 ## 🎨 Design System & Visual Language
 
-- **Aesthetic**: Soft neo-brutalist bento grid, airy layout, crisp contrast, friendly editorial feel.
+- **Aesthetic**: Soft neo-brutalism, expansive bento grid layout, crisp high-contrast outlines, friendly playful touches.
 - **Color Palette**:
-  - **Backgrounds**: Pure White (`#FFFFFF`) & Soft Warm Gray (`#F7F7F7`)
+  - **Backgrounds**: Pure White (`#FFFFFF`) & Soft Off-White (`#F7F7F7`)
   - **Ink & Outlines**: Deep Charcoal (`#1D1D1D`) with `1.5px solid` borders
-  - **Pastel Accents**:
+  - **Pastel Color Blocks**:
     - Pastel Lavender: `#E3E3FF`
     - Pastel Mint / Sage: `#DBF5F0`
     - Pastel Butter Yellow: `#FFE7A9`
@@ -21,62 +29,104 @@ A complete, responsive, pixel-perfect creative portfolio website featuring clean
     - Pastel Lime: `#E9FAC0`
     - Pastel Coral Peach: `#FBEBEA`
 - **Typography**:
-  - **Headings & Body**: `Plus Jakarta Sans` (Heavy/Medium weights, `-0.03em` letter-spacing)
-  - **Handwritten Accents**: `Caveat` (Playful annotations, scribbles, and underlines)
-- **Border Radii**:
-  - `24px` to `36px` on bento project and metric cards
+  - **Primary Sans**: `Plus Jakarta Sans` (Heavy/Medium weights, `-0.03em` tracking)
+  - **Handwritten Accent**: `Caveat` (Playful annotations, scribbles, and underlines)
+- **Border Radii & Shadows**:
+  - `24px` to `36px` on bento project and profile cards
   - `9999px` (full pill) for buttons, badges, and tags
+  - Tactile neo-brutalist solid drop shadows on hover (`4px 4px 0px #1D1D1D`)
 
 ---
 
-## ⚡ Core Sections & Components
+## ⚡ Core Features & Sections
 
-1. **Sticky Pill Navigation**:
-   - Clean Meeko logo mark with accent dot.
-   - Floating pill-shaped navigation container (`Home`, `Work`, `About`, `Process`, `Blog`, `Contact`).
-   - "Get in Touch" primary pill button with hover lift.
-   - Mobile hamburger menu toggling a slide-in sheet modal drawer.
-2. **Hero Section**:
-   - Availability pill badge with green pulsing dot.
-   - Giant editorial headline: *"Hello! I'm Meeko, a product designer."*
-   - Interactive availability circular SVG seal continuously rotating 360°.
-   - Floating pastel badge tags and handwritten annotation.
-   - 3 Bento quick-navigation cards (Portfolio `#DBF5F0`, About Me `#FFE7A9`, Contact Me `#FFE3FB`).
-3. **Selected Works Bento Grid**:
-   - 4 Featured project cards with pastel backdrops and stylized browser mockups:
-     1. **The Big Shake** (*Brand Design • Framer*)
-     2. **Transparent Things** (*Web Design • Typography*)
-     3. **Phantom Limb** (*Logo Design • WordPress*)
-     4. **Heat Lightning** (*Webflow • UX Design*)
-   - "Are you ready to see more?" CTA banner.
-4. **Client Testimonial Callout**:
-   - Large pastel card with oversized quotation marks, 5-star rating, and quote from Natalie Brooks.
-5. **Working Process ("How I Work")**:
-   - 4-step numbered grid: Problem Framing, Shaping the Idea, Testing the Experience, Polishing the Outcome.
-6. **Key Metrics & Statistics**:
-   - Interactive counters animating upon viewport entry: 98% Satisfied customers, 15 Years experience, 80+ Projects, 10+ Awards, 45 Cities travelled.
-7. **About Me & Animated Skill Progress Meters**:
-   - Illustrated profile avatar card with location tag.
-   - Bio details and animated skill progress pill bars (UI Design 95%, Web Design 97%, Framer 85%, WordPress 80%, Photoshop 90%, Illustration 65%).
-8. **Interactive Capabilities & Services**:
-   - Pill cloud featuring Mobile Design, UX & Product Design, Identity & Branding, Illustration, Web Development, Shopify Integration, Digital Solutions with hover scaling.
-9. **From the Blog (Latest Insights)**:
-   - 2 editorial article cards with tag badges, reading links, and hover micro-animations.
-10. **CTA Banner & Footer**:
-    - Large pastel callout with handwritten Caveat accent *"and make it real together"* with custom curved underline SVG.
-    - Minimal clean footer with navigation and back-to-top button.
+### 1. Sticky Navigation (Top-Right Aligned)
+- Brand logo with dedicated `<code />` icon badge, bold typography **"Hritik Raj."**, and accent dot.
+- Floating pill navigation container aligned to the **right top** (`Home`, `Projects`, `About`, `Contact`).
+- **"Get in Touch"** primary pill button with subtle hover lift.
+- Animated slide-in mobile sheet drawer for small screens.
+
+### 2. Hero Section
+- **Status Badge**: *"Open to Internships & Collaborations"* with a green pulsing dot.
+- **Dynamic Typewriter Headline**: Live typing, pausing, and backspacing effect cycling through:
+  - `B.Tech CSE (AI/ML) Student`
+  - `Frontend Web Developer`
+  - `Python Programmer`
+  - `Creative Tech Builder`
+- **Rotating Availability Seal**: 360° continuously rotating circular SVG text badge (*"— I AM AVAILABLE — FOR FREELANCE —"*).
+- **Floating Tags**: `Python` (Lime), `HTML5` (Lavender), `CSS3` (Mint), `JavaScript` (Yellow), and handwritten Caveat annotation.
+- **Hero Actions**: Quick action buttons for **"Get in Touch"** and **"View Projects"**.
+- **Expansive Bento Quick-Nav Cards**:
+  - *Featured Projects* (Mint `#DBF5F0`)
+  - *About Me* (Butter Yellow `#FFE7A9`)
+  - *Contact Me* (Soft Pink `#FFE3FB`)
+
+### 3. Featured Projects
+Showcases selected projects with stylized browser window mockups and direct repository links:
+1. **[CodeFlux](https://github.com/hritikraj07/CodeFlux)**
+   - *Tags*: `Web Development` • `UI/UX Design`
+   - *Description*: Modern digital studio platform crafting responsive web applications, interactive UI components, and clean digital experiences.
+   - *Action*: Direct link to the GitHub repository.
+2. **[Galaxy Defender](https://github.com/hritikraj07/Galaxy-Defender)**
+   - *Tags*: `60 FPS Web Game` • `HTML5 Canvas` • `JavaScript`
+   - *Description*: Fast-paced **60 FPS arcade sci-fi web game** built with HTML5 Canvas and Vanilla JavaScript featuring alien combat, collision physics, health systems, and particle explosions.
+   - *Action*: Direct link to the GitHub repository.
+- **GitHub Banner**: Prominent callout to visit [@hritikraj07](https://github.com/hritikraj07) for more code and repositories.
+
+### 4. About Me & Technical Skills
+- **Profile Card**: Minimalist designer avatar illustration with India location tag and student status badge.
+- **Bio**: Highlighting academic focus in Computer Science & Engineering (AI/ML) and web development.
+- **Animated Skill Progress Bars** (via `IntersectionObserver`):
+  - **HTML (Complete)** — `100%`
+  - **Python (Intermediate Level)** — `75%`
+  - **CSS (Basics)** — `60%`
+- **Technologies Cloud**: Interactive pill badges for Python, HTML5, CSS3, JavaScript, AI/ML Foundations, Git & GitHub, and Responsive Design.
+
+### 5. Call-to-Action (CTA) & Footer
+- **CTA Callout**: High-impact card with Caveat handwritten accent *"or just say hi"* and custom curved underline SVG.
+- **Contact Hub**: Direct email button to `hritikraj626@gmail.com` with quick social pills for GitHub and LinkedIn.
+- **Footer**: Brand mark, tagline *"B.Tech CSE (AI/ML) Student | Aspiring Developer"*, copyright, quick navigation, and smooth **"Back to Top"** button.
+
+### 6. Layout & Navigation Refinements
+- **Expansive `1420px` Layout**: Full-width fluid container (`clamp(24px, 4.5vw, 64px)`) eliminating any cropped or cramped feel on wide displays.
+- **Direct Section Landing**: Smooth scroll calculations land directly at the `.section-header` underneath the floating navbar, eliminating awkward empty gaps.
 
 ---
 
-## 💻 Tech Stack
+## 🛠️ Tech Stack
 
-- **HTML5**: Semantic, accessible markup.
-- **Vanilla CSS**: Custom design system tokens, CSS grid, flexbox, keyframe animations (`spin`, `pulse`).
-- **Vanilla JavaScript**: IntersectionObserver for counters and progress bars, smooth offset scrolling, mobile modal management.
-- **Google Fonts**: Plus Jakarta Sans & Caveat.
+- **HTML5**: Semantic, accessible structure.
+- **Vanilla CSS**: Custom design system tokens, CSS grid, flexbox, keyframe animations (`spin-seal`, `pulse-ring`, `blink-cursor`).
+- **Vanilla JavaScript**: Typewriter text engine, IntersectionObserver for skill meters, calibrated smooth scrolling, mobile modal management.
+- **Google Fonts**: `Plus Jakarta Sans` & `Caveat`.
+
+---
+
+## 📁 Repository Structure
+
+```text
+PORTFOLIO/
+├── index.html       # Semantic HTML5 document & page structure
+├── style.css        # Soft-pastel neo-brutalist design system & responsive styling
+├── script.js        # Typewriter effect, smooth scrolling & interactive animations
+├── favicon.svg      # Modern geometric HR monogram favicon
+└── README.md        # Project documentation
+```
 
 ---
 
 ## 🚀 Running Locally
 
-Simply open `index.html` in any modern web browser or serve via any static HTTP server (e.g. VS Code Live Server or `python -m http.server 8000`).
+You can run the project locally without any dependencies:
+
+1. **Directly in Browser**:
+   - Double-click `index.html` or open it in any modern browser (Chrome, Edge, Firefox, Safari).
+
+2. **Using Python**:
+   ```bash
+   python -m http.server 8080
+   ```
+   Open `http://localhost:8080` in your browser.
+
+3. **Using VS Code Live Server**:
+   - Right-click `index.html` and select **"Open with Live Server"**.
